@@ -25,9 +25,11 @@ public class ConfigManager {
     private static final String STREAM_EVENT_TYPE = "stream";
 
     private static final String REVERSE_MESSAGE_ZK_PATH               = "/reverse/message";
+
     private static final String REVERSE_MESSAGE_SOURCE_ZK_PATH        = REVERSE_MESSAGE_ZK_PATH + "/source";
     private static final String REVERSE_MESSAGE_SINK_ZK_PATH          = REVERSE_MESSAGE_ZK_PATH + "/sink";
     private static final String REVERSE_MESSAGE_STREAM_ZK_PATH        = REVERSE_MESSAGE_ZK_PATH + "/stream";
+
     private static final String REVERSE_MESSAGE_SOURCE_SECRET_ZK_PATH = REVERSE_MESSAGE_SOURCE_ZK_PATH + "/secret";
     private static final String REVERSE_MESSAGE_SOURCE_NAME_ZK_PATH   = REVERSE_MESSAGE_SOURCE_ZK_PATH + "/name";
     private static final String REVERSE_MESSAGE_SINK_SECRET_ZK_PATH   = REVERSE_MESSAGE_SINK_ZK_PATH + "/secret";
@@ -51,7 +53,7 @@ public class ConfigManager {
                 REVERSE_MESSAGE_SOURCE_SECRET_ZK_PATH, false);
         sourceSecretCache.getListenable().addListener(new PathChildrenCacheListener() {
             public void childEvent(CuratorFramework curatorFramework,
-                                   PathChildrenCacheEvent pathChildrenCacheEvent) throws Exception {
+                                   PathChildrenCacheEvent pathChildrenCacheEvent) {
                 onPathChildrenChanged(REVERSE_MESSAGE_SOURCE_SECRET_ZK_PATH);
             }
         });
@@ -61,7 +63,7 @@ public class ConfigManager {
                 REVERSE_MESSAGE_SOURCE_NAME_ZK_PATH, false);
         souceNameCache.getListenable().addListener(new PathChildrenCacheListener() {
             public void childEvent(CuratorFramework curatorFramework,
-                                   PathChildrenCacheEvent pathChildrenCacheEvent) throws Exception {
+                                   PathChildrenCacheEvent pathChildrenCacheEvent) {
                 onPathChildrenChanged(REVERSE_MESSAGE_SOURCE_NAME_ZK_PATH);
             }
         });
@@ -71,7 +73,7 @@ public class ConfigManager {
                 REVERSE_MESSAGE_SINK_SECRET_ZK_PATH, false);
         sinkSecretCache.getListenable().addListener(new PathChildrenCacheListener() {
             public void childEvent(CuratorFramework curatorFramework,
-                                   PathChildrenCacheEvent pathChildrenCacheEvent) throws Exception {
+                                   PathChildrenCacheEvent pathChildrenCacheEvent) {
                 onPathChildrenChanged(REVERSE_MESSAGE_SINK_SECRET_ZK_PATH);
             }
         });
@@ -80,7 +82,7 @@ public class ConfigManager {
         PathChildrenCache sinkNameCache = new PathChildrenCache(zookeeper,
                 REVERSE_MESSAGE_SINK_NAME_ZK_PATH, false);
         sinkNameCache.getListenable().addListener(new PathChildrenCacheListener() {
-            public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent pathChildrenCacheEvent) throws Exception {
+            public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent pathChildrenCacheEvent) {
                 onPathChildrenChanged(REVERSE_MESSAGE_SINK_NAME_ZK_PATH);
             }
         });
@@ -89,7 +91,7 @@ public class ConfigManager {
         PathChildrenCache streamTokenCache = new PathChildrenCache(zookeeper,
                 REVERSE_MESSAGE_STREAM_TOKEN_ZK_PATH, false);
         streamTokenCache.getListenable().addListener(new PathChildrenCacheListener() {
-            public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent pathChildrenCacheEvent) throws Exception {
+            public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent pathChildrenCacheEvent) {
                 onPathChildrenChanged(REVERSE_MESSAGE_STREAM_TOKEN_ZK_PATH);
             }
         });

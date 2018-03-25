@@ -41,8 +41,8 @@ abstract class AbstractPool<T> {
         }
     }
 
-    public void returnResourceObject(final T resource) {
-        internalPool.returnObject(resource);
+    private void returnResourceObject(final T resource) {
+
     }
 
     public void returnBrokenResource(final T resource) {
@@ -57,7 +57,7 @@ abstract class AbstractPool<T> {
         closeInternalPool();
     }
 
-    protected void returnBrokenResourceObject(final T resource) {
+    private void returnBrokenResourceObject(final T resource) {
         try {
             internalPool.invalidateObject(resource);
         } catch (Exception e) {
@@ -65,7 +65,7 @@ abstract class AbstractPool<T> {
         }
     }
 
-    protected void closeInternalPool() {
+    private void closeInternalPool() {
         internalPool.close();
     }
 
